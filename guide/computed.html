@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <p><a href="https://jp.vuejs.org/v2/guide/computed.html" target="_blank">https://jp.vuejs.org/v2/guide/computed.html</a></p>
+
+    <div id="example">
+        <p>Original message: "{{ message }}"</p>
+        <p>Computed reversed message: "{{ reversedMessage }}"</p>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#example',
+            data: {
+                message: 'Hello'
+            },
+            computed: {
+                // 算出 getter 関数
+                reversedMessage: function () {
+                    // `this` は vm インスタンスを指します
+                    return this.message.split('').reverse().join('')
+                }
+            }
+        })
+    </script>
+
+    <div id="demo">{{ fullName }}</div>
+    <script>
+        var vm = new Vue({
+        el: '#demo',
+            data: {
+                firstName: 'Foo',
+                lastName: 'Bar'
+            },
+            computed: {
+                fullName: function () {
+                  return this.firstName + ' ' + this.lastName
+                }
+            }
+        })
+    </script>
+</body>
+</html>
