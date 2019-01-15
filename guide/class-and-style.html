@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+    .active{
+        color: blue;
+    }
+    </style>
+</head>
+<body>
+    <p><a href="https://jp.vuejs.org/v2/guide/class-and-style.html" target="_blank">https://jp.vuejs.org/v2/guide/class-and-style.html</a></p>
+
+    <div id="sample">
+            <div
+            class="static"
+            v-bind:class="{ active: isActive, 'text-danger': hasError }"
+        >hogehoge</div>
+        <div v-bind:class="classObject">fugafuga</div>
+    </div>
+    <script>
+    new Vue({
+        el: '#sample div:first-child',
+        data: {
+            isActive: true,
+            hasError: false
+        }
+    });
+    new Vue({
+        el: '#sample div:last-child',
+        data: {
+            classObject: {
+                active: true,
+                'text-danger': false
+            }
+        },
+    });
+    </script>
+</body>
+</html>
