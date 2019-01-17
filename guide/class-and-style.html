@@ -40,5 +40,52 @@
         },
     });
     </script>
+
+    <div id="app" v-bind:class="[activeClass, errorClass]">{{ activeClass }} {{ errorClass }}</div>
+    <script>
+    new Vue({
+        el: '#app',
+        data: {
+            activeClass: 'active',
+            errorClass: 'text-danger'
+        },
+    });
+    </script>
+
+    <div id="app2">
+        <my-component class="baz boo"></my-component>
+    </div>
+    <script>
+    Vue.component('my-component', {
+        template: '<p class="foo bar">Hi</p>'
+    })
+    new Vue({
+        el: '#app2',
+    });
+    </script>
+
+    <div id="app3" v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">piyopiyo</div>
+    <script>
+    new Vue({
+        el: '#app3',
+        data: {
+            activeColor: 'red',
+            fontSize: 30
+        },
+    });
+    </script>
+
+    <div id="app4" v-bind:style="styleObject">hogera</div>
+    <script>
+    new Vue({
+        el: '#app4',
+        data: {
+            styleObject: {
+                color: 'red',
+                fontSize: '13px'
+            }
+        },
+    });
+    </script>    
 </body>
 </html>
